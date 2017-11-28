@@ -1,10 +1,16 @@
 <?php
-        require("../codebase/connector/grid_connector.php");
-        $conn=mysql_connect("localhost","root","g0th@m");
 
-        mysql_select_db("OPENHEALTH");
-        $data = new GridConnector($conn,"MySQL");
+  require("../codebase/connector/grid_connector.php");
+  require("../codebase/connector/db_pdo.php");
 
-        $data->render_table("gl_insurance","ins_id","ins_id,name,state");
+  // DATABASE CONNECTION CODE
+  $db_host = getenv('DB_HOST');
+  $db_name = getenv('DB_NAME');
+  $db_user = getenv('DB_USER');
+  $db_pass = getenv('DB_PASS');
+  $db = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=utf8mb4',$db_user,$db_pass);
+
+  $data = new GridConnector($db,"PDO");
+  $data->render_table("gl_insurance","ins_id","ins_id,name,state");
+
 ?>
-
