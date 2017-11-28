@@ -16,7 +16,12 @@ services:
     image: vdigital/phpmicro:dev
     volumes:
       - ./src:/var/www/html
+    environment:
+      - DB_HOST=db-service
+      - DB_NAME=OPENHEALTH
+      - DB_USER=
+      - DB_PASS=
     ports:
       - 80:80
     depends_on:
-      - mydb
+      - db-service
