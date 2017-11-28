@@ -11,5 +11,5 @@
         // DATABASE CONNECTION CODE
 
         $data = new GridConnector($db,"PDO");
-        //$data->render_table("gl_droffice","id","id,name,addr,city,state,zip,phone");
+        $data->render_table("gl_droffice","id","id,name,addr,city,state,zip,phone");
 ?>
