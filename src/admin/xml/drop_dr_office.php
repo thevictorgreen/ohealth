@@ -1,14 +1,19 @@
 <?php
 
   //require_once("/GDS/ohealth/admin/xml/settings.php");
-  $con = mysql_connect("localhost","root","g0th@m"); //,false,MYSQL_CLIENT_SSL);
-  mysql_select_db("OPENHEALTH",$con);
+  // DATABASE CONNECTION CODE
+  $db_host = getenv('DB_HOST');
+  $db_name = getenv('DB_NAME');
+  $db_user = getenv('DB_USER');
+  $db_pass = getenv('DB_PASS');
+  $db = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=utf8mb4',$db_user,$db_pass);
+  // DATABASE CONNECTION CODE;
 
   $id      = $_GET['id'];
   //$api_key = $_GET['api_key'];
 
-  $result = mysql_query("SELECT * FROM gl_droffice WHERE id = $id");
-  $row    = mysql_fetch_array($result);
+  $result = $db->query("SELECT * FROM gl_droffice WHERE id = $id");
+  $row    = $result->fetch();
 
   $dr_users               = $row['dr_users'];
   $dr_patients            = $row['dr_patients'];
@@ -27,30 +32,30 @@
   $dr_soap_diag           = $row['dr_soap_diag'];
   $dr_soap_script         = $row['dr_soap_script'];
 
-  mysql_query("DROP table $dr_users");
-  mysql_query("DROP table $dr_patients");
-  mysql_query("DROP table $dr_pharmacies");
-  mysql_query("DROP table $dr_prescriptions");
-  mysql_query("DROP table $dr_prescriptions_que");
-  mysql_query("DROP table $dr_refills");
-  mysql_query("DROP table $dr_adherence");
-  mysql_query("DROP table $dr_permissions");
-  mysql_query("DROP table $dr_logs");
-  mysql_query("DROP table $dr_pmh");
-  mysql_query("DROP table $dr_diagnosis");
-  mysql_query("DROP table $dr_allergies");
-  mysql_query("DROP table $dr_prescriptions_other");
-  mysql_query("DROP table $dr_soap");
-  mysql_query("DROP table $dr_soap_diag");
-  mysql_query("DROP table $dr_soap_script");
+  $db->query("DROP table $dr_users");
+  $db->query("DROP table $dr_patients");
+  $db->query("DROP table $dr_pharmacies");
+  $db->query("DROP table $dr_prescriptions");
+  $db->query("DROP table $dr_prescriptions_que");
+  $db->query("DROP table $dr_refills");
+  $db->query("DROP table $dr_adherence");
+  $db->query("DROP table $dr_permissions");
+  $db->query("DROP table $dr_logs");
+  $db->query("DROP table $dr_pmh");
+  $db->query("DROP table $dr_diagnosis");
+  $db->query("DROP table $dr_allergies");
+  $db->query("DROP table $dr_prescriptions_other");
+  $db->query("DROP table $dr_soap");
+  $db->query("DROP table $dr_soap_diag");
+  $db->query("DROP table $dr_soap_script");
 
-  mysql_query("DROP table gl_insurance");
-  mysql_query("DROP table gl_ins_apprvQty");
-  mysql_query("DROP table gl_ins_apprvSig");
-  mysql_query("DROP table gl_pharmacy1");
-  mysql_query("DROP table gl_sig");
-  mysql_query("DELETE FROM gl_droffice WHERE id = $id");
-  mysql_query("ALTER TABLE gl_droffice auto_increment = 1");
+  $db->query("DROP table gl_insurance");
+  $db->query("DROP table gl_ins_apprvQty");
+  $db->query("DROP table gl_ins_apprvSig");
+  $db->query("DROP table gl_pharmacy1");
+  $db->query("DROP table gl_sig");
+  $db->query("DELETE FROM gl_droffice WHERE id = $id");
+  $db->query("ALTER TABLE gl_droffice auto_increment = 1");
 
   echo "success";
 
