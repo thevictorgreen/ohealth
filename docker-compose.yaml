@@ -19,8 +19,8 @@ services:
     environment:
       - DB_HOST=db-service
       - DB_NAME=OPENHEALTH
-      - DB_USER=
-      - DB_PASS=
+      - DB_USER=root
+      - DB_PASS=g0th@m
     ports:
       - 80:80
     depends_on:
