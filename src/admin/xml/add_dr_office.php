@@ -9,7 +9,7 @@
   $db_name = getenv('DB_NAME');
   $db_user = getenv('DB_USER');
   $db_pass = getenv('DB_PASS');
-  $db = new PDO('mysql:host=$db_host;dbname=$db_name;charset=utf8mb4', '$db_user', '$db_pass');
+  $db = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=utf8mb4', 'root', 'g0th@m');
   // DATABASE CONNECTION CODE
 
 
@@ -78,9 +78,10 @@
   try {
       $db->query("INSERT INTO gl_droffice (name,addr,city,state,zip,phone,o_id,api_key,dr_users,dr_patients,dr_pharmacies,dr_prescriptions,dr_prescriptions_que,dr_refills,dr_adherence,dr_permissions,dr_logs,dr_pmh,dr_diagnosis,dr_allergies,dr_prescriptions_other,dr_soap,dr_soap_diag,dr_soap_script) VALUES ('$name','$addr','$city','$state','$zip','$phone','$o_id','$api_key','$dr_users','$dr_patients','$dr_pharmacies','$dr_prescriptions','$dr_prescriptions_que','$dr_refills','$dr_adherence','$dr_permissions','$dr_logs','$dr_pmh','$dr_diagnosis','$dr_allergies','$dr_prescriptions_other','$dr_soap','$dr_soap_diag','$dr_soap_script')");
   } catch(PDOException $ex) {
-      echo $ex-getMessage();
+      die( $ex-getMessage() );
+      //echo $ex-getMessage();
   }
-
+/*
   try {
       $db->query("Create table $dr_users (id int not null auto_increment unique,first_name varchar(20),last_name varchar(20),login varchar(20),passd varchar(20),is_dr varchar(5),dea varchar(20),send_script varchar(5),appr_req varchar(5),email varchar(80),lic_num varchar(20))");
   } catch(PDOException $ex) {
@@ -206,7 +207,7 @@
   } catch(PDOException $ex) {
         echo $ex-getMessage();
   }
-
+*/
   echo "success";
 
 ?>
