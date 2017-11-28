@@ -13,7 +13,7 @@
   $dr_users;
 
   $result = $db->query("SELECT dr_users,dr_permissions from gl_droffice where id = $id");
-  $row = $result-fetch();
+  $row = $result->fetch();
   $dr_users = $row['dr_users'];
   $dr_permissions = $row['dr_permissions'];
   $uid  = $_GET['uid'];
