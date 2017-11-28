@@ -370,7 +370,7 @@
                                                   var email = addUserForm.getItemValue("email");
                                                   var lic_num = addUserForm.getItemValue("lic_num");
 
-                                                  dhtmlxAjax.get("xml/add_dr_office_user.php?last_name="+last_name+"&first_name="+first_name+"&login="+login+"&passd="+passd+"&is_dr="+is_dr+"&dea="+dea+"&send_script="+send_script+"&appr_req="+appr_req+"&email="+email+"&lic_num="+lic_num,function(loader) { 
+                                                  dhtmlxAjax.get("xml/add_dr_office_user.php?last_name="+last_name+"&first_name="+first_name+"&login="+login+"&passd="+passd+"&is_dr="+is_dr+"&dea="+dea+"&send_script="+send_script+"&appr_req="+appr_req+"&email="+email+"&lic_num="+lic_num,function(loader) {
 
                                                         if (loader.xmlDoc.responseText == "success") {
                                                                 dhtmlx.message("USER CREATED");
@@ -685,7 +685,7 @@
                          staGrid.setColTypes("ro,ro,ro");
                          staGrid.init();
 
-                         var url = "http://api.firstmedisource.com/call.php/states?user_key=654628232eb57960ccad23ec60d1a150";
+                         var url = "http://app.thevictorgreen.com:32000/index.php/states?user_key=654628232eb57960ccad23ec60d1a150";
                          $.ajax({ type: "GET",
                                url: url,
                                dataType: "json",
