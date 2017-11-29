@@ -706,9 +706,11 @@
                          staGrid.attachEvent("onRowSelect",function(id,ind) {
 
                                 var selectedRowId = staGrid.getSelectedRowId();
-                                var cellObj = staGrid.cellById(selectedRowId,1);
-                                var st_short = cellObj.getValue();
-                                alert(st_short);
+                                //var cellObj = staGrid.cellById(selectedRowId,1);
+                                var cellObj = staGrid.cellById(selectedRowId,0);
+                                //var st_short = cellObj.getValue();
+                                var st_id = cellObj.getValue();
+                                alert(st_id);
 
                                 insGrid.clearAll();
 
