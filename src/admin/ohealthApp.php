@@ -918,11 +918,14 @@
                                 var st_short = cellObj.getValue();
 
                                 var selectedRowId = cityGrid.getSelectedRowId();
-                                var cellObj = cityGrid.cellById(selectedRowId,2);
-                                var ct_name = cellObj.getValue();
+                                //var cellObj = cityGrid.cellById(selectedRowId,2);
+                                //var ct_name = cellObj.getValue();
+
+                                var cellObj = cityGrid.cellById(selectedRowId,0);
+                                var ct_id = cellObj.getValue();
 
                                 phaGrid.clearAll();
-                                var url = "http://api.firstmedisource.com/call.php/pharmacies/" +st_short+ "/" +ct_name+ "?user_key=654628232eb57960ccad23ec60d1a150";
+                                var url = "http://app.thevictorgreen.com:32000/index.php/pharmacies/" +ct_id+ "?user_key=654628232eb57960ccad23ec60d1a150";
                                 $.ajax({ type: "GET",
                                       url: url,
                                       dataType: "json",
