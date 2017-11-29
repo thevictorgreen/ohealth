@@ -710,11 +710,11 @@
                                 var cellObj = staGrid.cellById(selectedRowId,0);
                                 //var st_short = cellObj.getValue();
                                 var st_id = cellObj.getValue();
-                                alert(st_id);
+                                //alert(st_id);
 
                                 insGrid.clearAll();
 
-                                /*var url = "http://app.thevictorgreen.com:32000/index.php/insurance/" + st_short + "?user_key=654628232eb57960ccad23ec60d1a150";
+                                var url = "http://app.thevictorgreen.com:32000/index.php/insurance/" + st_id + "?user_key=654628232eb57960ccad23ec60d1a150";
                                 $.ajax({ type: "GET",
                                       url: url,
                                       dataType: "json",
@@ -729,7 +729,7 @@
                                                insGrid.addRow(i,ins_id+","+ins_name+","+i);
                                          }
                                       }
-                                });*/
+                                });
 
                          });
 
