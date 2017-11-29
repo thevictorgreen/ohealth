@@ -857,7 +857,7 @@
                          staGrid.setColTypes("ro,ro,ro");
                          staGrid.init();
 
-                         var url = "http://api.firstmedisource.com/call.php/states?user_key=654628232eb57960ccad23ec60d1a150";
+                         var url = "http://app.thevictorgreen.com:32000/index.php/states?user_key=654628232eb57960ccad23ec60d1a150";
                          $.ajax({ type: "GET",
                                url: url,
                                dataType: "json",
