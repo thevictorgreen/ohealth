@@ -708,10 +708,11 @@
                                 var selectedRowId = staGrid.getSelectedRowId();
                                 var cellObj = staGrid.cellById(selectedRowId,1);
                                 var st_short = cellObj.getValue();
+                                alert(st_short);
 
                                 insGrid.clearAll();
 
-                                var url = "http://api.firstmedisource.com/call.php/insurance/" + st_short + "?user_key=654628232eb57960ccad23ec60d1a150";
+                                /*var url = "http://app.thevictorgreen.com:32000/index.php/insurance/" + st_short + "?user_key=654628232eb57960ccad23ec60d1a150";
                                 $.ajax({ type: "GET",
                                       url: url,
                                       dataType: "json",
@@ -726,7 +727,7 @@
                                                insGrid.addRow(i,ins_id+","+ins_name+","+i);
                                          }
                                       }
-                                });
+                                });*/
 
                          });
 
