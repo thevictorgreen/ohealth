@@ -877,11 +877,14 @@
 
                          staGrid.attachEvent("onRowSelect",function(id,ind) {
                                 var selectedRowId = staGrid.getSelectedRowId();
-                                var cellObj = staGrid.cellById(selectedRowId,1);
-                                var st_short = cellObj.getValue();
+                                //var cellObj = staGrid.cellById(selectedRowId,1);
+                                //var st_short = cellObj.getValue();
+
+                                var cellObj = staGrid.cellById(selectedRowId,0);
+                                var st_id = cellObj.getValue();
 
                                 cityGrid.clearAll();
-                                var url = "http://api.firstmedisource.com/call.php/cities/"+ st_short + "?user_key=654628232eb57960ccad23ec60d1a150";
+                                var url = "http://app.thevictorgreen.com:32000/index.php/cities/"+ st_id + "?user_key=654628232eb57960ccad23ec60d1a150";
                                 $.ajax({ type: "GET",
                                       url: url,
                                       dataType: "json",
