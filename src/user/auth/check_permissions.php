@@ -40,7 +40,7 @@
  $viewReports   = $row['viewReports'];
 
  $result = $db->query("select is_dr from $dr_users where id = $id");
- $row = $result-fetch();
+ $row = $result->fetch();
  $is_dr = $row['is_dr'];
 
  if ($permission == "is_dr") {
