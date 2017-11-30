@@ -1,19 +1,24 @@
 <?php
 
-  $con = mysql_connect("localhost","root","g0th@m"); //,false,MYSQL_CLIENT_SSL);
-  mysql_select_db("OPENHEALTH",$con);
+  // DATABASE CONNECTION CODE
+  $db_host = getenv('DB_HOST');
+  $db_name = getenv('DB_NAME');
+  $db_user = getenv('DB_USER');
+  $db_pass = getenv('DB_PASS');
+  $db = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=utf8mb4',$db_user,$db_pass);
+  // DATABASE CONNECTION CODE
 
 
-  $result = mysql_query("SELECT dr_users,dr_permissions from gl_droffice where id = 1");
-  $row = mysql_fetch_array($result);
+  $result = $db->query("SELECT dr_users,dr_permissions from gl_droffice where id = 1");
+  $row = $result->fetch();
   $dr_users = $row['dr_users'];
   $dr_permissions = $row['dr_permissions'];
 
   $uname      = $_GET["uname"];
   $permission = $_GET["perm"];
 
-  $result = mysql_query("select id from $dr_users where login = '$uname' ");
-  $row = mysql_fetch_array($result);
+  $result = $db->query("select id from $dr_users where login = '$uname' ");
+  $row = $result->fetch();
   $id = $row['id'];
   $md_id = $id;
 
@@ -21,8 +26,8 @@
 
 
 
- $result = mysql_query("select * from $dr_permissions where u_id = $id");
- $row = mysql_fetch_array($result);
+ $result = $db->query("select * from $dr_permissions where u_id = $id");
+ $row = $result-fetch();
 
  $submitScript  = $row['submitScript'];
  $viewScript    = $row['viewScript'];
@@ -34,8 +39,8 @@
  $viewFormulary = $row['viewFormulary'];
  $viewReports   = $row['viewReports'];
 
- $result = mysql_query("select is_dr from $dr_users where id = $id");
- $row = mysql_fetch_array($result);
+ $result = $db->query("select is_dr from $dr_users where id = $id");
+ $row = $result-fetch();
  $is_dr = $row['is_dr'];
 
  if ($permission == "is_dr") {
@@ -81,18 +86,5 @@
  if ($permission == "viewReports") {
      echo $viewReports;
  }
-
-
-
-        //echo       "{";
-        //echo           "\"submitScript\":\"$submitScript\",";
-        //echo           "\"viewScript\":\"$viewScript\",";
-        //echo           "\"viewScriptQue\":\"$viewScriptQue\",";
-        //echo           "\"viewAdherence\":\"$viewAdherence\",";
-        //echo           "\"viewPatients\":\"$viewPatients\",";
-        //echo           "\"viewCharts\":\"$viewCharts\",";
-        //echo           "\"viewFormulary\":\"$viewFormulary\"";
-        //echo       "}";
-
 
 ?>
