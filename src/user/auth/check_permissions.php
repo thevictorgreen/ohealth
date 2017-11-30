@@ -27,7 +27,7 @@
 
 
  $result = $db->query("select * from $dr_permissions where u_id = $id");
- $row = $result-fetch();
+ $row = $result->fetch();
 
  $submitScript  = $row['submitScript'];
  $viewScript    = $row['viewScript'];
