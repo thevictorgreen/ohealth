@@ -15,7 +15,7 @@
     <link rel="STYLESHEET" type="text/css" href="codebase/dhtmlx.css">
 
     <link href="/maps/documentation/javascript/examples/default.css" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo_4BdRVyuefO4LQZe38yP1AqgqKn0lXQ&v=3.exp&sensor=false"></script>
 
     <!-- Fusion Charts Components  -->
     <script type="text/javascript" src="FusionCharts/FusionCharts.js"></script>
