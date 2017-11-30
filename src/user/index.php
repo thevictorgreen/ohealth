@@ -916,6 +916,8 @@
                   perm.md_id = loader.xmlDoc.responseText;
                 });
 
+                console.log( perm );
+
               }
               else {
                 dhtmlx.message("Invalid Credentials");
