@@ -84,7 +84,7 @@
 
               //Main Layout
               mainLayout = new dhtmlXLayoutObject(document.body,"1C");
-              mainLayout.setSkin("material");
+              mainLayout.setSkin("dhx_terrace");
               mainLayout.cells("a").hideHeader();
               var mainToolbar = mainLayout.cells("a").attachToolbar();
               mainToolbar.addButton("acctBtn",200,"My Account");
