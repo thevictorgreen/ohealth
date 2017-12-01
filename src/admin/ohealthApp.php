@@ -84,7 +84,7 @@
 
               //Main Layout
               mainLayout = new dhtmlXLayoutObject(document.body,"1C");
-              mainLayout.setSkin("dhx_web");
+              //mainLayout.setSkin("dhx_web");
               mainLayout.cells("a").hideHeader();
               var mainToolbar = mainLayout.cells("a").attachToolbar();
               mainToolbar.addButton("acctBtn",200,"My Account");
